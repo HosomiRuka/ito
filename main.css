@@ -15,12 +15,11 @@ body {
 }
 
 .wrap {
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto auto 0 auto;
+  margin: auto;
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -29,8 +28,8 @@ body {
 }
 
 ul {
-  display: flex;
-  gap: 16px;
+  display: grid;
+  gap: 8px;
   grid-template-columns: repeat(3, 1fr);
   padding: 0;
 }
@@ -55,9 +54,10 @@ ul li {
   align-items: center;
   flex-direction: column;
   margin: 30px 0;
+  font-size: 20px;
 }
-.number .input {
-  font-size: 18px;
+.number input {
+  font-size: 20px;
 }
 
 /* カード本体 */
@@ -72,15 +72,14 @@ ul li {
   align-items: center;
   color: #ffffff;
   border-radius: 8px;
-  box-shadow: 3px 3px 10px #dadada;
 }
 
 .card .back {
-  background: #bdffc2;
+  background: #8fc1cb;
 }
 
 .card .front {
-  background: hsl(0, 0%, 90%);
+  background: #8c8c8c;
 }
 
 /* 擬似要素とpadding-topでカードの高さを指定 */
