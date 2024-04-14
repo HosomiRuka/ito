@@ -1,9 +1,38 @@
 @charset "UTF-8";
+/*--------------------
+初期化
+--------------------*/
 * {
   margin: 0;
   padding: 0;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*--------------------
+END 初期化 ------------
+--------------------*/
 body {
   background: #f9f9f9;
 }
@@ -15,7 +44,7 @@ body {
 }
 
 .wrap {
-  top: 0;
+  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
@@ -23,14 +52,15 @@ body {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
-  padding: 8px 8px 32px 8px;
+  padding: 8px 8px 16px 8px;
   box-sizing: border-box;
 }
 
 ul {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
-  grid-template-columns: repeat(3, 1fr);
   padding: 0;
 }
 
@@ -48,48 +78,12 @@ ul li {
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
-.number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 30px 0;
-  font-size: 20px;
-}
-.number input {
-  font-size: 20px;
-}
-
 /* カード本体 */
 .card {
   position: relative;
   cursor: pointer;
 }
 
-.card div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  border-radius: 8px;
-}
-
-.card .back {
-  background: #8fc1cb;
-}
-
-.card .front {
-  background: #8c8c8c;
-}
-
-/* 擬似要素とpadding-topでカードの高さを指定 */
-.card::before {
-  content: "";
-  display: block;
-  padding-top: 142.5%;
-}
-
-/* カード裏面・表面の共通スタイル */
 .card .back,
 .card .front {
   position: absolute;
@@ -99,39 +93,92 @@ ul li {
   width: 100%;
   backface-visibility: hidden;
   transition: all 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 8px;
 }
 
-/* カード表面のスタイル */
-.card .front {
-  transform: rotateY(-180deg);
+/* 擬似要素とpadding-topでカードの高さを指定 */
+.card::before {
+  content: "";
+  display: block;
+  padding-top: 142.5%;
 }
 
-/* ホバー時のカード裏面 */
-.card:hover .back {
+.card .back {
   transform: rotateY(180deg);
+  background: #8fc1cb;
 }
 
-/* ホバー時のカード表面 */
-.card:hover .front {
+.card .front {
+  background: #8c8c8c;
   transform: rotateY(0);
 }
 
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+.number-title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0 16px 0;
+  font-size: 20px;
+}
+.number-title span {
+  display: block;
+  font-size: 12px;
+  font-weight: 300;
+  color: #cdcdcd;
 }
 
-button {
+.counter-wrap {
+  margin: 30px auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.counter-wrap .counter {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+.counter-wrap button,
+.counter-wrap input {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border: 2px solid rgb(178, 178, 178);
+  border-radius: 8px;
+}
+
+.button-wrap {
+  display: grid;
+  gap: 16px;
+}
+.button-wrap button {
   width: 100%;
   font-size: 30px;
   border-radius: 100px;
   padding: 16px 16px;
   color: #f9f9f9;
   background: #232323;
+}
+.button-wrap #decision {
+  background: #ed4646;
+}
+
+.hidden .back {
+  transform: rotateY(0);
+}
+.hidden .front {
+  transform: rotateY(180deg);
+}
+
+.open .back {
+  transform: rotateY(180deg);
+}
+.open .front {
+  transform: rotateY(0);
 }/*# sourceMappingURL=main.css.map */

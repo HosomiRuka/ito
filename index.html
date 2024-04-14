@@ -18,21 +18,26 @@
         <ul class="card-wrap">
           <li class="card">
             <div class="back">?</div>
-            <div class="front">1</div>
-          </li>
-          <li class="card">
-            <div class="back">?</div>
-            <div class="front">1</div>
-          </li>
-          <li class="card">
-            <div class="back">?</div>
-            <div class="front">1</div>
+            <div class="front"></div>
           </li>
         </ul>
-        <h2 class="number">
-          <label for="">生成するカードの枚数</label><input type="number" />
-        </h2>
-        <button id="btn">カードを生成する</button>
+
+        <div class="counter-wrap">
+          <h2 class="number-title">
+            生成するカードの枚数<br />
+            <!-- <span>(1~6枚を想定しています)</span> -->
+          </h2>
+          <div class="counter">
+            <button id="minus">-</button>
+            <input id="number" type="number" value="1" />
+            <button id="plus">+</button>
+          </div>
+        </div>
+
+        <div class="button-wrap">
+          <button id="new">カードを生成する</button>
+          <button id="decision">これで決定！</button>
+        </div>
         <script src="./main.js"></script>
       </div>
     </main>
