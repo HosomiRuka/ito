@@ -109,11 +109,11 @@ ul li {
 
 .card .back {
   transform: rotateY(180deg);
-  background: #8fc1cb;
+  background: #a5a5a5;
 }
 
 .card .front {
-  background: #8c8c8c;
+  background: #8fc1cb;
   transform: rotateY(0);
 }
 
@@ -163,7 +163,7 @@ ul li {
   border-radius: 100px;
   padding: 16px 16px;
   color: #f9f9f9;
-  background: #232323;
+  background: #3b3b3b;
 }
 .button-wrap #decision {
   background: #ed4646;
