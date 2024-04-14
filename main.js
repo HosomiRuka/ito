@@ -58,6 +58,5 @@ decisionBtn.addEventListener("click", () => {
 });
 
 card.addEventListener("click", () => {
-  card.classList.add("open");
-  card.classList.remove("hidden");
+  card.classList.toggle("open");
 });
