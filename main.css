@@ -23,6 +23,10 @@ ul li {
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
+.number {
+  font-size: 18px;
+}
+
 /* カード本体 */
 .card {
   position: relative;
