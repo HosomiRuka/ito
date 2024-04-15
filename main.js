@@ -3,14 +3,13 @@
 // TODO 乱数を生成する
 // TODO 入力した分の乱数を生成 + 乱数をhtmlに表示
 // TODO クリックしたらカードを表向きにする
+// TODO 数字を生成するを押したら、増えるんじゃなくてもう一回その枚数生成される
 
 const minus = document.getElementById("minus");
 const plus = document.getElementById("plus");
 const createCardNumber = document.getElementById("number");
 const cardWrap = document.querySelector(".card-wrap");
 const newCardCreateBtn = document.querySelector("#new");
-const front = document.querySelector(".front");
-const cards = document.querySelectorAll(".card");
 const decisionBtn = document.querySelector("#decision");
 
 // 読み込まれた時に1以下ならボタンを押せないようにする
@@ -46,38 +45,65 @@ plus.addEventListener("click", () => {
   createCardNumber.value++;
 });
 
+// カードと乱数を生成するボタン
 newCardCreateBtn.addEventListener("click", () => {
+  // 1回前のカードを消す。
+  while (cardWrap.firstChild) {
+    cardWrap.removeChild(cardWrap.firstChild);
+  }
+
+  // inputの中の数字を取得
   let inputNumber = createCardNumber.value;
+  console.log(inputNumber);
 
   // inputに入ってる数分コピーを繰り替えす
   for (let i = 0; i < inputNumber; i++) {
-    let newDivs = document.createElement("li");
+    // htmlを生成
+    let newLi = document.createElement("li");
     let newFront = document.createElement("div");
     let newBack = document.createElement("div");
 
-    newDivs.classList.add("card");
+    newLi.classList.add("card");
     newBack.classList.add("back");
     newFront.classList.add("front");
 
-    cards.forEach((card) => {
-      cardWrap.appendChild(newDivs);
-      card.appendChild(newBack);
-      card.appendChild(newFront);
-    });
+    cardWrap.appendChild(newLi);
+    newLi.appendChild(newBack);
+    newLi.appendChild(newFront);
   }
 
+  // ランダムな数字を生成する
   let random = Math.floor(Math.random() * 100) + 1;
-  front.textContent = random;
+  let backText = "?";
+
+  console.log(backText);
+
+  const fronts = document.querySelectorAll(".front");
+  const backs = document.querySelectorAll(".back");
+  fronts.forEach((front) => {
+    front.textContent = random;
+  });
+
+  backs.forEach((back) => {
+    back.textContent = backText;
+  });
 });
 
 // カード開閉
-cards.forEach((card) => {
-  decisionBtn.addEventListener("click", () => {
+decisionBtn.addEventListener("click", () => {
+  // 一番上に書くと、読み込まれた直後に要素を探しにいくから、今回みたいに生成されたものを取得してくれない。
+  // 読み込まれた時 → ない
+  // クリックされた時 → ある ←ここから探さないと。
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
     card.classList.add("hidden");
     card.classList.remove("open");
   });
 
-  card.addEventListener("click", () => {
-    card.classList.toggle("open");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("open");
+    });
   });
 });

@@ -107,13 +107,6 @@ ul li {
   //   box-shadow: 3px 3px 10px #dadada;
 }
 
-/* 擬似要素とpadding-topでカードの高さを指定 */
-.card::before {
-  content: "";
-  display: block;
-  padding-top: 142.5%;
-}
-
 // 裏
 .card .back {
   transform: rotateY(180deg);
@@ -177,7 +170,7 @@ ul li {
   }
 
   #decision {
-    background: #ed4646;
+    background: #8fc1cb;
   }
 }
 

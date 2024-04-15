@@ -105,13 +105,6 @@ ul li {
   border-radius: 8px;
 }
 
-/* 擬似要素とpadding-topでカードの高さを指定 */
-.card::before {
-  content: "";
-  display: block;
-  padding-top: 142.5%;
-}
-
 .card .back {
   transform: rotateY(180deg);
   background: #a5a5a5;
@@ -171,7 +164,7 @@ ul li {
   background: #3b3b3b;
 }
 .button-wrap #decision {
-  background: #ed4646;
+  background: #8fc1cb;
 }
 
 .hidden .back {
