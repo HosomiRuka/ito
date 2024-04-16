@@ -72,8 +72,17 @@ decisionBtn.addEventListener("click", () => {
 /*--------------------
 数字を生成するボタン
 --------------------*/
-// 乱数を指定の個数分生成する関数
-function randomCreate() {
+
+// 1回前のカードを消す。
+function removeCard() {
+  while (cardWrap.firstChild) {
+    cardWrap.removeChild(cardWrap.firstChild);
+  }
+}
+
+// TODO 出力される乱数を被らないようにする
+// 指定された個数分の乱数を生成する関数
+function random() {
   let inputNumber = createCardNumber.value;
   let randomNumber = [];
 
@@ -88,30 +97,10 @@ function randomCreate() {
   return randomNumber;
 }
 
-// 生成したランダムな数字をカードに表示させる
-function cardOutput(randomNumber) {
-  let backText = "?";
-  const fronts = document.querySelectorAll(".front");
-  const backs = document.querySelectorAll(".back");
-
-  fronts.forEach((front) => {
-    front.textContent = randomNumber;
-  });
-  backs.forEach((back) => {
-    back.textContent = backText;
-  });
-}
-
-// カードを生成するボタンを押して上記二つを発火させる
-newCardCreateBtn.addEventListener("click", () => {
-  // きっと関数とかにまとめて書いたほうがいいんだろうけど、書き方がわからないのでまとめて書きます。
-
-  // 1回前のカードを消す。
-  while (cardWrap.firstChild) {
-    cardWrap.removeChild(cardWrap.firstChild);
-  }
-
+// カード用のhtmlを生成する
+function createCards() {
   let inputNumber = createCardNumber.value;
+
   // inputに入ってる数分コピーを繰り替えす
   for (let i = 0; i < inputNumber; i++) {
     // htmlを生成
@@ -127,29 +116,26 @@ newCardCreateBtn.addEventListener("click", () => {
     newLi.appendChild(newBack);
     newLi.appendChild(newFront);
   }
+}
 
-  // ランダムな入力された数だけ数字を生成する
-  // for (let i = 0; i < inputNumber; i++) {
-  //   let random = Math.floor(Math.random() * 100) + 1;
-  //   const fronts = document.querySelectorAll(".front");
+// 生成した乱数をカードに表示させる
+function cardOutput(randomNumber) {
+  const fronts = document.querySelectorAll(".front");
+  let inputNumber = createCardNumber.value;
 
-  //   // 数字をカードに表示させる
-  //   fronts.forEach((front) => {
-  //     front.textContent = random;
-  //   });
-
-  //   console.log(random);
-  // }
-
-  let randomNumber = randomCreate();
-  cardOutput(randomNumber);
-
-  let backText = "?";
-  const backs = document.querySelectorAll(".back");
-
-  backs.forEach((back) => {
-    back.textContent = backText;
+  for (let i = 0; i < inputNumber; i++) {}
+  fronts.forEach((front) => {
+    front.textContent = randomNumber;
   });
+}
+
+// カードを生成するボタンを押して関数を発火させる
+newCardCreateBtn.addEventListener("click", () => {
+  let randomNumber = random();
+
+  removeCard();
+  createCards();
+  cardOutput(randomNumber);
 });
 
 // 戻り値練習

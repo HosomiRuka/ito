@@ -109,8 +109,19 @@ ul li {
 
 // 裏
 .card .back {
+  position: relative;
   transform: rotateY(180deg);
-  background: #a5a5a5;
+
+  &::after {
+    content: "?";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: #a5a5a5;
+  }
 }
 
 // 表
