@@ -75,20 +75,16 @@ decisionBtn.addEventListener("click", () => {
 // 乱数を指定の個数分生成する関数
 function randomCreate() {
   let inputNumber = createCardNumber.value;
-  console.log(inputNumber + "：インプットの中身");
-
   let randomNumber = [];
-  console.log(randomNumber);
 
   // ランダムな入力された数だけ数字を生成する
   for (let i = 0; i < inputNumber; i++) {
     let random = Math.floor(Math.random() * 100) + 1;
-    console.log(random + "：ランダムな数");
 
     randomNumber.push(random);
-    console.log(randomNumber + "：配列格納後");
   }
   //returnにすると配列じゃなくなる？？？？？？？？forの中にいれとったわ
+  console.log(randomNumber);
   return randomNumber;
 }
 
