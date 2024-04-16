@@ -4,6 +4,7 @@
 // TODO 入力した分の乱数を生成 + 乱数をhtmlに表示
 // TODO クリックしたらカードを表向きにする
 // TODO 数字を生成するを押したら、増えるんじゃなくてもう一回その枚数生成される
+// TODO 小さい数順に並び替える
 
 const minus = document.getElementById("minus");
 const plus = document.getElementById("plus");
@@ -93,7 +94,8 @@ function random() {
     randomNumber.push(random);
   }
   //returnにすると配列じゃなくなる？？？？？？？？forの中にいれとったわ
-  console.log(randomNumber);
+  // 並び替え
+  randomNumber.sort();
   return randomNumber;
 }
 
