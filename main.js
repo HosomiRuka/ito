@@ -123,11 +123,11 @@ function cardOutput(randomNumber) {
   const fronts = document.querySelectorAll(".front");
   let inputNumber = createCardNumber.value;
 
+  // 入力された値分表示を繰り返す
+  // なんかわからんけど行けた最悪 なんでfront , numberでいけんねや、numberはただ繰り返してるだけやから？
   for (let i = 0; i < inputNumber; i++) {
-    fronts.forEach((front) => {
-      front.textContent = randomNumber[i];
-      console.log(randomNumber[i] + "：表示されてる値");
-      console.log(i + "：の値");
+    fronts.forEach((front, number) => {
+      front.textContent = randomNumber[number];
     });
   }
 }
