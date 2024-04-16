@@ -110,12 +110,15 @@ ul li {
   transform: rotateY(180deg);
 }
 .card .back::after {
-  content: "?";
+  content: "数字を忘れたらタップで確認！";
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  font-size: 14px;
+  line-height: 24.5px;
+  padding: 5px;
   border-radius: 8px;
   background: #a5a5a5;
 }
