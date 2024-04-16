@@ -123,10 +123,13 @@ function cardOutput(randomNumber) {
   const fronts = document.querySelectorAll(".front");
   let inputNumber = createCardNumber.value;
 
-  for (let i = 0; i < inputNumber; i++) {}
-  fronts.forEach((front) => {
-    front.textContent = randomNumber;
-  });
+  for (let i = 0; i < inputNumber; i++) {
+    fronts.forEach((front) => {
+      front.textContent = randomNumber[i];
+      console.log(randomNumber[i] + "：表示されてる値");
+      console.log(i + "：の値");
+    });
+  }
 }
 
 // カードを生成するボタンを押して関数を発火させる
