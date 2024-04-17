@@ -5,6 +5,7 @@
 // TODO クリックしたらカードを表向きにする
 // TODO 数字を生成するを押したら、増えるんじゃなくてもう一回その枚数生成される
 // TODO 小さい数順に並び替える
+// TODO 要望：5000兆カード欲しい
 
 const minus = document.getElementById("minus");
 const plus = document.getElementById("plus");
@@ -95,7 +96,7 @@ function random() {
   }
   //returnにすると配列じゃなくなる？？？？？？？？forの中にいれとったわ
   // 並び替え
-  randomNumber.sort();
+  randomNumber.sort((a, b) => a - b);
   return randomNumber;
 }
 
