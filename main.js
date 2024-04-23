@@ -5,7 +5,13 @@
 // TODO クリックしたらカードを表向きにする
 // TODO 数字を生成するを押したら、増えるんじゃなくてもう一回その枚数生成される
 // TODO 小さい数順に並び替える
-// TODO 要望：5000兆カード欲しい
+
+// 要望
+// TODO 5000兆カード欲しい、自信満々の100をぶっ潰すため
+
+// 追加したい機能
+// TODO お題の登録、登録してるお題の確認
+// TODO オンライン対戦
 
 const minus = document.getElementById("minus");
 const plus = document.getElementById("plus");
@@ -143,15 +149,3 @@ newCardCreateBtn.addEventListener("click", () => {
   createCards();
   cardOutput(randomNumber);
 });
-
-// 戻り値練習
-// function test() {
-//   let a = "aです";
-
-//   return a;
-// }
-
-// decisionBtn.addEventListener("click", () => {
-//   let a = test();
-//   console.log(a + "よね？");
-// });

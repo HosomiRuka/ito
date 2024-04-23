@@ -15,6 +15,9 @@
   <body>
     <main class="main">
       <div class="wrap">
+        <!-- お題 -->
+        <h1 id="themes" class="thema">タイトルが入ります</h1>
+        <!-- カード生成場所 -->
         <ul class="card-wrap"></ul>
 
         <div class="counter-wrap">
@@ -33,6 +36,23 @@
           <button id="new">数字を生成する</button>
           <button id="decision">これで決定！</button>
         </div>
+
+        <!-- お題ボタン -->
+        <div class="button-wrap">
+          <button>お題をランダムで決める</button>
+        </div>
+
+        <!-- 入力欄 -->
+        <div class="addTextBox">
+          <input type="text" />
+        </div>
+        <div class="button-wrap">
+          <button id="addThema">お題を追加する</button>
+          <button>お題を選ぶ</button>
+        </div>
+
+        <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
+        <script src="./api.js"></script>
         <script src="./main.js"></script>
       </div>
     </main>
